@@ -11,19 +11,21 @@ package cardgames;
  */
 public abstract class Cards {
     private int index;
-    private int importance;
-    //int quantity;
+    private int importance;     //to be dynamically determined in-game
     
-    public Cards(int index){
-        this.index=index;
+    //creates a blank card for use in deck construction
+    public Cards(){}
+    
+    //card super constructor
+    public Cards(int i){
+        this.index=i;
         importance=0;
     }
     
-    public abstract String toString();
+    //Called by a blank card to construct remainder of deck
+    public abstract Cards getConstructor(int i);
     
-//    public int getQuantity(){
-//    return quantity;
-//    }
+    public abstract String toString();
     
     public int getIndex(){
         return index;
@@ -36,4 +38,6 @@ public abstract class Cards {
     public int getImportance(){
         return importance;
     }
+    
+    public abstract int getQuantity();
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cardgames;
 
 /**
@@ -13,12 +8,24 @@ package cardgames;
 //primarily for testing purposes
 public class Digits extends Cards{
     private int cardNumber;
-    //int quantity=10;
-    static int quantity=10;
+    static final int quantity=10;
     
     public Digits(int cardNumber){
         super (cardNumber);
         this.cardNumber=cardNumber;
+    }
+    
+    //creates a blank card that is used to construct rest of deck
+    public Digits(){}
+    
+    //the primary constructor
+    public Digits getConstructor(int cardNumber){
+        Digits thisCard=new Digits (cardNumber);
+        return thisCard;
+    }
+        
+    public int getQuantity(){
+        return quantity;
     }
     
     @Override
