@@ -8,25 +8,32 @@ package cardgames;
 //primarily for testing purposes
 public class Digits extends Cards{
     private int cardNumber;
+    private int rank;
     static final int quantity=10;
     
-    public Digits(int cardNumber){
-        super (cardNumber);
-        this.cardNumber=cardNumber;
+    
+    //the primary constructor
+    public Digits(int index){
+        super (index);
+        this.cardNumber=rank=index;
     }
     
     //creates a blank card that is used to construct rest of deck
     public Digits(){}
     
-    //the primary constructor
-    public Digits getConstructor(int cardNumber){
-        Digits thisCard=new Digits (cardNumber);
+    //gets the primary constructor
+    public Digits getConstructor(int index){
+        Digits thisCard=new Digits (index);
         return thisCard;
     }
         
     public int getQuantity(){
         return quantity;
     }
+    
+//    public int getRank(Digits c){
+//        return c.rank;I''
+//    }
     
     @Override
     public String toString(){

@@ -17,11 +17,16 @@ public class WarPlayer {
         hand=new Deck(mainDeck, 26);
     }
     
-    public WarCards removeCard(){
-        return (WarCards) hand.removeFirst();
+//        public WarPlayer(Deck mainDeck){
+//        hand=new Deck(mainDeck, 26, mainDeck.getFirst());
+//    }
+    
+    public StandardCards removeFirst(){
+        return (StandardCards) hand.removeFirst();
+        //return hand.removeFirst();
     }
     
-    public void addCard(WarCards c){
+    public void addCard(StandardCards c){
         hand.addLast(c);
     }
     

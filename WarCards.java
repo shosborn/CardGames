@@ -13,7 +13,7 @@ public class WarCards extends StandardCards implements Comparable {
     
     private int rank;
         //used to compare cards
-        //2s rank 0, 3s rank 1, Kings rank 12, Aces rank 13
+        //2s rank 0, 3s rank 1,... Kings rank 12, Aces rank 13
     
     public WarCards(){
         super();

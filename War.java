@@ -15,20 +15,24 @@ public class War {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        WarCards c1;
-        WarCards c2;
-        //WarPlayer winner;
+        StandardCards c1;
+        StandardCards c2;
         
-        Deck mainDeck=new Deck(new WarCards());
+        //Deck mainDeck=new Deck(new WarCards());
+        Deck mainDeck=new Deck(new StandardCards());
+        System.out.println(mainDeck);
+        mainDeck.shuffle();
         WarPlayer p1=new WarPlayer(mainDeck);
         WarPlayer p2=new WarPlayer(mainDeck);
         System.out.println(p1.getHand());
         System.out.println(p2.getHand());
         while (!p1.getHand().isEmpty() && !p2.getHand().isEmpty()){
-            c1=p1.removeCard();
-            c2=p1.removeCard();
-            System.out.print("Player 1 plays "+c1.getName());
-            System.out.println(", Player 2 plays "+c2.getName()+".");
+            //p1.removeFirst();
+            c1=p1.removeFirst();
+            c2=p1.removeFirst();
+//            c1=(WarCards) p1.hand.getFirst();
+            System.out.print("Player 1 plays "+c1.getName()+":rank "+c1.getRank());
+            System.out.println(", Player 2 plays "+c2.getName()+":rank "+c1.getRank()+".");
             
             //Deck activeDeck=new Deck();
             switch (c1.compareTo(c2)){
@@ -50,6 +54,7 @@ public class War {
                     break;
             }   //end switch
             System.out.println("Player 1 "+ p1.getHandSize()+", Player 2 "+p2.getHandSize());
+            System.out.println();
         }   //end while neither player down to zero.
         if (p1.getHandSize()>0){
             System.out.println("Player 1 wins the game!");
