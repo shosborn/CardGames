@@ -14,48 +14,37 @@ public class StandardCards extends Cards implements Comparable{
     private String number;
     private String suite;
     private String name;
-    private int rank;
-    
+    private int testNumber;
+    private int intNumber;
     static final String[] numbering=
             {"2", "3", "4", "5", "6", "7", "8", "9", "10", 
             "J", "Q", "K", "A"};
-            //this array uses a unique card index to determine card number
+    private int rank;
     
-    //creates a blank card
-    public StandardCards(){
-        super();
-    }    
- 
+    //the primary constructor
     public StandardCards(int index){
-        super (index);
-        number=numbering [this.index%13];
-        rank=this.index%13;
+        super(index);
+        number=numbering [getIndex()%13];
+        //this.testNumber=index;
+        intNumber=index%13;
+        rank=intNumber;
         if (index<13) this.suite="Cl";
         else if (index>=13 && index<=25) this.suite="Di";
         else if (index>=26 && index<=38) this.suite="He";
         else if (index>=29 && index <=51) this.suite="Sp";
-        //Throw some kind of exception here for out of bounds index?
-        this.name=number+"-"+suite+": rank"+rank;
-        //rank=this.index%13;
-    }//End of Constructor
+        this.name=number+"-"+suite;
+    }
     
-    @Override
-    public Cards getConstructor(int i) {
-        StandardCards thisCard=new StandardCards (i);
+     //creates a blank card that is used to construct rest of deck
+    public StandardCards(){}
+    
+    //gets the primary constructor
+    public StandardCards getConstructor(int index){
+        StandardCards thisCard=new StandardCards (index);
         return thisCard;
     }
-
-    public String getName(){
-        return name;
-    }
     
-    @Override
-    public String toString() {
-        return name;
-    }
-
-    @Override
-    public int getQuantity() {
+    public int getQuantity(){
         return quantity;
     }
     
@@ -66,12 +55,17 @@ public class StandardCards extends Cards implements Comparable{
     public int getRank(){
         return rank;
     }
+    
+    @Override
+    public String toString(){
+        return name;
+    }
 
     @Override
     public int compareTo(Object c) {
         StandardCards card=(StandardCards) c;
-        if (this.rank<card.getRank()) return -1;
-        if (this.rank<card.getRank()) return 1;
+        if (this.getRank()<card.getRank()) return -1;
+        if (this.getRank()>card.getRank()) return 1;
         else return 0;
     }
 }

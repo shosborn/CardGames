@@ -9,33 +9,30 @@ package cardgames;
  *
  * @author Sims
  */
-public class WarPlayer {
+public class WarPlayer extends Player{
     
-    private Deck hand;
+    private Deck myDeck;
     
     public WarPlayer(Deck mainDeck){
-        hand=new Deck(mainDeck, 26);
+        myDeck=new Deck(mainDeck, 26);
     }
     
-//        public WarPlayer(Deck mainDeck){
-//        hand=new Deck(mainDeck, 26, mainDeck.getFirst());
+    public StandardCards playCard(){
+        return (StandardCards) myDeck.pop();
+    }
+    
+    public void takeCard(StandardCards c){
+        myDeck.addLast(c);
+    }
+       
+//    @Override
+//    public Deck getDeck(){
+//        return myDeck;
 //    }
     
-    public StandardCards removeFirst(){
-        return (StandardCards) hand.removeFirst();
-        //return hand.removeFirst();
-    }
-    
-    public void addCard(StandardCards c){
-        hand.addLast(c);
-    }
-    
-    public Deck getHand(){
-        return hand;
-    }
-    
-    public int getHandSize(){
-        return hand.size();
+    @Override
+    public int getDeckSize(){
+        return myDeck.size();
     }
 
 }

@@ -8,14 +8,13 @@ package cardgames;
 //primarily for testing purposes
 public class Digits extends Cards{
     private int cardNumber;
-    private int rank;
     static final int quantity=10;
     
     
     //the primary constructor
     public Digits(int index){
         super (index);
-        this.cardNumber=rank=index;
+        this.cardNumber=index;
     }
     
     //creates a blank card that is used to construct rest of deck

@@ -9,9 +9,11 @@ package cardgames;
  *
  * @author Sims
  */
-public abstract class Cards {
-    protected int index;
-    private int importance;     //to be dynamically determined in-game
+public abstract class Cards extends Object {
+    private int index;
+    private int rank;
+    private int priority;     //to be dynamically determined in-game
+    private int quantity;
     
     //creates a blank card for use in deck construction
     public Cards(){}
@@ -19,7 +21,7 @@ public abstract class Cards {
     //card super constructor
     public Cards(int i){
         this.index=i;
-        importance=0;
+        priority=rank=0;
         
     }
     
@@ -28,17 +30,36 @@ public abstract class Cards {
     
     public abstract String toString();
     
+    public int setIndex(int index){
+        this.index=index;
+        return index;
+    }
+    
     public int getIndex(){
         return index;
     }
     
-    public void setImportance(int importance){
-        this.importance=importance;
+    public void setImportance(int priority){
+        this.priority=priority;
     }
     
     public int getImportance(){
-        return importance;
+        return priority;
     }
     
-    public abstract int getQuantity();
+    public void setRank(int rank){
+        this.rank=rank;
+    }
+    
+    public int getRank(){
+        return rank;
+    }
+    
+    public void setQuantity(int quantity){
+        this.quantity=quantity;
+    }
+    
+    public int getQuantity(){
+        return quantity;
+    }
 }
